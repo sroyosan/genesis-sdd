@@ -1,6 +1,6 @@
 import { Message } from "../types";
 
-const BACKEND_URL = "http://localhost:8080";
+const BACKEND_URL = "http://localhost:8181";
 
 export async function chatWithAI(messages: Message[]) {
   const response = await fetch(`${BACKEND_URL}/api/chat`, {

@@ -8,10 +8,13 @@ services:
     container_name: genesis_backend
     ports:
       - "8181:8181"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       - PORT=8181
       # Añade aquí o en un archivo .env tu API Key
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
     restart: unless-stopped
 
   frontend:
