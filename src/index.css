@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-[#050505] text-slate-300 selection:bg-indigo-500/30 selection:text-white;
+  }
+}
+
+@layer components {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+  }
+
+  /* Dark themed markdown styles */
+  .markdown-container h1 { @apply text-2xl font-bold mb-6 tracking-tight text-white; }
+  .markdown-container h2 { @apply text-xl font-bold mt-8 mb-4 tracking-tight border-b border-white/5 pb-2 text-white; }
+  .markdown-container h3 { @apply text-lg font-bold mt-6 mb-3 tracking-tight text-indigo-400; }
+  .markdown-container p { @apply mb-4 text-slate-400 leading-relaxed; }
+  .markdown-container ul { @apply list-disc list-inside mb-4 space-y-2 text-slate-400; }
+  .markdown-container ol { @apply list-decimal list-inside mb-4 space-y-2 text-slate-400; }
+  .markdown-container li { @apply text-slate-400; }
+  .markdown-container code { @apply px-1.5 py-0.5 rounded bg-white/5 text-indigo-400 font-mono text-sm border border-white/5; }
+  .markdown-container pre { @apply p-4 rounded-xl bg-black border border-white/5 text-slate-300 overflow-x-auto mb-6 text-sm font-mono shadow-2xl; }
+  .markdown-container blockquote { @apply border-l-4 border-indigo-500/50 pl-4 italic text-slate-500 mb-4; }
+  .markdown-container table { @apply w-full border-collapse mb-6; }
+  .markdown-container th { @apply text-left p-3 border-b border-white/10 font-bold text-sm bg-white/5 text-white; }
+  .markdown-container td { @apply p-3 border-b border-white/5 text-sm text-slate-400; }
+  .markdown-container strong { @apply text-white font-semibold; }
+}
+
