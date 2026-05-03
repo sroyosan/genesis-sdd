@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: genesis_backend
+    ports:
+      - "8181:8181"
+    environment:
+      - PORT=8181
+      # Añade aquí o en un archivo .env tu API Key
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: genesis_frontend
+    ports:
+      - "3000:80" # Mapea el puerto 3000 de tu máquina al 80 de Nginx
+    depends_on:
+      - backend
+    restart: unless-stopped
